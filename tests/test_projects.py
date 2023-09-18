@@ -68,5 +68,6 @@ class TestProjects:
         # print(response.json())
         assert response.status_code == 204
 
-    def tear_down_class(self):
+    @classmethod
+    def teardown_class(cls):
          print("teardown")

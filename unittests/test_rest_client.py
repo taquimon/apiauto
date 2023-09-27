@@ -26,7 +26,7 @@ class TestRestClient(unittest.TestCase):
             response = RestClient().send_request(method_name="get", session=self.session,
                                                      url="https://www.google.com")
             mock_get.assert_called_once_with("https://www.google.com", headers='', data=None)
-            self.assertEquals(response, response_mock)
+            assert response == response_mock
 
     def test_send_request_post(self):
         response_mock = Mock(spec=Response)
@@ -36,12 +36,13 @@ class TestRestClient(unittest.TestCase):
         }
         with patch.object(requests.Session, "post", return_value=response_mock) as mock_get:
             response = RestClient().send_request(method_name="post", session=self.session,
-                                                     url="https://www.google.com", data=json.dumps(body))
-            mock_get.assert_called_once_with("https://www.google.com", headers='', data=json.dumps(body))
-            self.assertEquals(response, response_mock)
+                                                 url="https://www.google.com",
+                                                 data=json.dumps(body))
+            mock_get.assert_called_once_with("https://www.google.com", headers='',
+                                             data=json.dumps(body))
+            assert response == response_mock
 
     def test_send_request_invalid_method(self):
         with self.assertRaises(AssertionError):
-            RestClient().send_request(method_name="put", session=self.session, url="https://www.google.com")
-
-
+            RestClient().send_request(method_name="put", session=self.session,
+                                      url="https://www.google.com")

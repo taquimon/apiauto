@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/projects"
+  },
+  "response": {
+    "body": {
+        "id": "2321078760",
+        "parent_id": null,
+        "order": 25,
+        "color": "charcoal",
+        "name": "Project 0",
+        "comment_count": 0,
+        "is_shared": false,
+        "is_favorite": false,
+        "is_inbox_project": false,
+        "is_team_inbox": false,
+        "url": "https://todoist.com/showProject?id=2321078760",
+        "view_style": "list"
+    },
+    "headers": {
+      "Content-type": "application/json"
+    },
+    "status": 200
+  }
+}

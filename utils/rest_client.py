@@ -4,6 +4,7 @@
 rest_client.py
     wrapper from requests library
 """
+import json
 import logging
 
 import requests
@@ -21,6 +22,7 @@ class RestClient(metaclass=Singleton):
     """
 
     def send_request(self, method_name, session=None, url="", headers="", data=None):
+        response_dict = {}
         methods = {
             "get": session.get,
             "post": session.post,
@@ -39,13 +41,20 @@ class RestClient(metaclass=Singleton):
             if hasattr(response, "request"):
                 LOGGER.debug("Request: %s", response.request.headers)
             LOGGER.info("Response: %s", response.text)
+            if response.text:
+                response_dict["body"] = json.loads(response.text)
+            else:
+                response_dict["body"] = {"msg": "No body content"}
+
+            response_dict["headers"] = response.headers
+            response_dict["status"] = response.status_code
 
         except requests.exceptions.HTTPError as http_error:
             LOGGER.error("HTTP error: %s", http_error)
         except requests.exceptions.RequestException as request_error:
             LOGGER.error("Request error: %s", request_error)
 
-        return response
+        return response_dict
 
     def get(self, session, url_base, headers):
         """

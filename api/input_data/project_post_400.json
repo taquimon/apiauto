@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/projects",
+    "body": {
+      "name": ""
+    }
+  },
+  "response": {
+    "body": {
+        "msg": "Name must be provided for the project creation"
+    },
+    "headers": {
+      "Content-type": "text/plain; charset=utf-8"
+    },
+    "status": 400
+  }
+}
+

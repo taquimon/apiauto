@@ -51,13 +51,6 @@ class RestClient(metaclass=Singleton):
 
         except requests.exceptions.HTTPError as http_error:
             LOGGER.error("HTTP error: %s", http_error)
-            if response.text:
-                response_dict["body"] = {"msg": response.text}
-            # else:
-            #     response_dict["body"] = {"msg": "No body content"}
-
-            response_dict["headers"] = response.headers
-            response_dict["status"] = response.status_code
         except requests.exceptions.RequestException as request_error:
             LOGGER.error("Request error: %s", request_error)
 

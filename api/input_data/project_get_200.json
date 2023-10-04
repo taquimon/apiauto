@@ -21,6 +21,6 @@
     "headers": {
       "Content-type": "application/json"
     },
-    "status": 201
+    "status": 200
   }
 }

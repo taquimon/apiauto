@@ -1,7 +1,7 @@
 import pymsteams
 import xml.etree.ElementTree as ET
 
-WEB_HOOK = "https://jalacorp.webhook.office.com/webhookb2/f258aa5b-882d-4f85-91f7-d441b4ccb2f4@67fc19c4-301c-4f98-aab9-827d7e165edc/IncomingWebhook/f20ee1df654e4f6fb2212c5b0f4ea8e6/3ae1ea10-c6c9-411c-990f-35cdbbd64224"
+from config.config import WEB_HOOK
 
 team_message = pymsteams.connectorcard(WEB_HOOK)
 

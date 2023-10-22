@@ -2,7 +2,6 @@ nose2==0.13.0
 python-dotenv==1.0.0
 requests==2.31.0
 nose2-html-report==0.6.0
-
-pytest~=7.4.2
-hvac~=1.2.1
+allure-nose2==2.13.2
+pytest~=7.4.2hvac~=1.2.1
 pymsteams~=0.2.2

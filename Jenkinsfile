@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'python:3' }
+    }
     environment {
         TOKEN = '9463fd6e63c3ac3e06372045795ef48264968d2c'
     }

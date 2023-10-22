@@ -9,13 +9,13 @@ pipeline {
             steps{ 
                sh 'python3 --version'
             }
-        }    
-        withPythonEnv('python3') {
-             sh 'pip install -r requirements.txt'
-        }        
+        }            
         stage('Run Python Script') {
             steps {
-                sh 'python3 -m nose2'
+                withPythonEnv('python3') {
+                     sh 'pip install -r requirements.txt'                
+                     sh 'python3 -m nose2'
+                }
             }
         }
     }

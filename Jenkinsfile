@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage('version') {            
             steps{ 
-               sh 'python3.10 -m venv .venv'
+               sh 'python3 --version'
             }
         }    
         stage('Install requirements') {
             steps {
-                sh '. venv/bin/activate && pip install -r requirements.txt'
+                 sh 'python -m pip install -r requirements.txt'
             }
         }
         stage('Run Python Script') {

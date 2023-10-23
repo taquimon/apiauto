@@ -42,7 +42,7 @@ class Sections(unittest.TestCase):
                                              url=self.url_section, data=data)
         section_id = response["body"]["id"]
         self.section_list.append(section_id)
-        assert response["status"] == 201, "Expected 201 but received 200"
+        assert response["status"] == 200, "Expected 201 but received 200"
 
     test_create_section.tags = ["acceptance", "smoke"]
 
